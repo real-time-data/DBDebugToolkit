@@ -376,7 +376,28 @@
 			remoteGlobalIDString = 5D161BA711701D7E41E02A5702FD024E;
 			remoteInfo = Expecta;
 		};
-		6AB49DC697C4B93F2A8EBB7200472B88 /* PBXContainerItemProxy */ = {
+		3C40F4C33B6E04E4BC255BDA9347E43F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F735623187026F3BD2C22B39C4ED5F9A;
+			remoteInfo = TBXML;
+		};
+		5B37EB1118F5207A23D6B9DA9957FEDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F735623187026F3BD2C22B39C4ED5F9A;
+			remoteInfo = TBXML;
+		};
+		5F4814FE3F449DD3E47FA02C77198AAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F735623187026F3BD2C22B39C4ED5F9A;
+			remoteInfo = TBXML;
+		};
+		77F1027A25496DA7125D18D82DA9BB30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -396,6 +417,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3EFD191C67A49B262B7E5A6F0E4A5EB7;
 			remoteInfo = "Pods-DBDebugToolkit_Example";
+		};
+		E5F62B7518097CB223E3C400A1E03829 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E5090CE5486B39A035B16B0E64EB0DC;
+			remoteInfo = "iOS-GPX-Framework";
+		};
+		F2C2C8B2E508C507F59BD5F688DC2009 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E5090CE5486B39A035B16B0E64EB0DC;
+			remoteInfo = "iOS-GPX-Framework";
+		};
+		F9B81AF8E1ED324F403D4674F79DF5CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9AA81C3F02BF9C162F1DE422B045372;
+			remoteInfo = Specta;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -788,7 +830,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		24CB78D319AF2683A3C0625A2E4DA0AF /* Frameworks */ = {
+		0D0FC01659BF694E7FFD7C39C6B9BCDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FE26C602727B94A2861EE2DA8130467 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DC854E1D0A28BDCBA4D9A29826EE719 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -878,7 +928,7 @@
 			path = ShakeTrigger;
 			sourceTree = "<group>";
 		};
-		1088FF28BA9FACD5476F3304D0FEA7E9 /* Specta */ = {
+		08B029B575EA17A24D7B0AE66915477A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				D61BC75AB795DFB7AE9CF80D79C1B530 /* Specta.h */,
@@ -1213,7 +1263,7 @@
 			path = "Example/Pods/Target Support Files/DBDebugToolkit";
 			sourceTree = "<group>";
 		};
-		642CBADE05AB7AED541CB2A072F3023A /* Expecta */ = {
+		65242BD301DC13002423EB4CB014A265 /* Specta */ = {
 			isa = PBXGroup;
 			children = (
 				04D6221AD6AD261B601F9711E749A5D5 /* EXPBlockDefinedMatcher.h */,
@@ -1369,13 +1419,27 @@
 			);
 			sourceTree = "<group>";
 		};
-		832799A4B323B60613D70B37F74AE952 /* Pods */ = {
+		7E2B73FD9DBC5ADE0664E2F92722EABC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				642CBADE05AB7AED541CB2A072F3023A /* Expecta */,
-				1088FF28BA9FACD5476F3304D0FEA7E9 /* Specta */,
+				496E9AE43AEA40A1DE2B324929EFABE4 /* DBCoreDataToolkit.h */,
+				4FF6032279A52B56777FD49A4BA821D4 /* DBCoreDataToolkit.m */,
+				303BE94C701625A753428119579EADC5 /* DBEntitiesTableViewController.h */,
+				E1A3A1110314DED8DE89417C494E6816 /* DBEntitiesTableViewController.m */,
+				504D532B4B2D56FB0947692C32A2C4AC /* DBManagedObjectsListTableViewController.h */,
+				750B3CAE2AD2FFE21B1136D59393A4DB /* DBManagedObjectsListTableViewController.m */,
+				AAF53B136329BAF1B42DA684E90496F3 /* DBManagedObjectTableViewCell.h */,
+				0F2B53144E07D1423403F2B9DB8F69DE /* DBManagedObjectTableViewCell.m */,
+				DB9C47BBEFC2B2E579ED78183610B386 /* DBManagedObjectTableViewController.h */,
+				4EA5F0AA526E041878D8304F1DFF56F3 /* DBManagedObjectTableViewController.m */,
+				D0C45B7F783B2E2B676621A88AF6D448 /* DBPersistentStoreCoordinatorsTableViewController.h */,
+				25D82F4A4B4F3FE089AF037FB6B0CC6F /* DBPersistentStoreCoordinatorsTableViewController.m */,
+				3383A25454CD68C350056C934AE96A87 /* NSPersistentStoreCoordinator+DBCoreDataToolkit.h */,
+				87AE2032288BC1B3995E047E30DF8278 /* NSPersistentStoreCoordinator+DBCoreDataToolkit.m */,
+				E574D6601ED993F06BEFE7CBAB7429CD /* Filters */,
 			);
-			name = Pods;
+			name = CoreData;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		84019B0B33131BF44134ED56ED6C75E1 /* Performance */ = {
@@ -1408,7 +1472,8 @@
 			children = (
 				34727C9AA3AEBAF7FFBED96F442C5896 /* DBDebugToolkit */,
 			);
-			name = "Development Pods";
+			name = TopLevelViews;
+			path = DBDebugToolkit/Classes/TopLevelViews;
 			sourceTree = "<group>";
 		};
 		882F8EFF65EE38E0743D0394AF8D570C /* Products */ = {
@@ -1750,7 +1815,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FE6C81EE9745E2951B29A8E5AF541CC /* Pods-DBDebugToolkit_Example-umbrella.h in Headers */,
+				713DDEADAC7136740C3707350928D082 /* Pods-DBDebugToolkit_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2179,6 +2244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B32E9006BA2B07BB939B78CBC941AD32 /* Pods-DBDebugToolkit_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2250,6 +2316,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F589D494E021A59702B589BE3BF17B46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC4C7CB0E993F38508F84F973A11F7C /* GPXAuthor.m in Sources */,
+				BD0DC0187AFCD4D29EEEE71285CB4631 /* GPXBounds.m in Sources */,
+				081FC066B95455A995FF6A9E6B52D784 /* GPXConst.m in Sources */,
+				54D60396DF2127BD6A94DF953F561131 /* GPXCopyright.m in Sources */,
+				83F5597ACCB73430A0EC085DC213B306 /* GPXElement.m in Sources */,
+				4B356225A3C5D0479E660DD54B23832A /* GPXEmail.m in Sources */,
+				680DC31BA44C3FC0034FBABDBA5EDC03 /* GPXExtensions.m in Sources */,
+				3184888E64D93C4645F341802733998A /* GPXLink.m in Sources */,
+				67DAB8339F4888160D06C6B375E69048 /* GPXMetadata.m in Sources */,
+				08C86723868F95774444D1557F784D50 /* GPXParser.m in Sources */,
+				F18CB51958AB33C6B5DBD529B8A09AAA /* GPXPerson.m in Sources */,
+				2A78B3CD7BE086E64369044F8A49D2D3 /* GPXPoint.m in Sources */,
+				7B6A6448FA77115F9418818F47B71677 /* GPXPointSegment.m in Sources */,
+				ABA44A1914FC2C4CA948A995610BC455 /* GPXRoot.m in Sources */,
+				A78A0848ABDA6F8597D8C3E48B8AA88E /* GPXRoute.m in Sources */,
+				1E6446A5DB00132C1BC5F48274DD9630 /* GPXRoutePoint.m in Sources */,
+				C8AC232B3E2B0A263F1A3D1DB2D9592A /* GPXTrack.m in Sources */,
+				BBD8F3CD2B7EADA2293DC41F464E9BEF /* GPXTrackPoint.m in Sources */,
+				DACCD3E6D98F4A50904CEEB32143C016 /* GPXTrackSegment.m in Sources */,
+				F26ECAB562A8695D4670DFBE07B564F8 /* GPXType.m in Sources */,
+				E54EA9B01F79F1E76CE398F74B61BA27 /* GPXWaypoint.m in Sources */,
+				E4F4B6735244E5569F252F88704D0858 /* iOS-GPX-Framework-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2265,7 +2360,7 @@
 			target = 3EFD191C67A49B262B7E5A6F0E4A5EB7 /* Pods-DBDebugToolkit_Example */;
 			targetProxy = F63BF76882EE0E1B8ADEFE20F5E1BEF8 /* PBXContainerItemProxy */;
 		};
-		B504611300937A27FEB901BD0FB47E0B /* PBXTargetDependency */ = {
+		A51AC1917920F8CFB2D4C3104FD2913B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DBDebugToolkit;
 			target = B58AB1D4B4CD27247F930E9CADD20C47 /* DBDebugToolkit */;
@@ -2313,6 +2408,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2324,6 +2420,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4852F9979C840DF600D5D78CC9163ED3 /* Expecta.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2333,8 +2430,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Expecta/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-DBDebugToolkit_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2355,15 +2451,33 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8BC327085645365CCE53AA896DE08159 /* DBDebugToolkit.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DBDebugToolkit";
-				INFOPLIST_FILE = "Target Support Files/DBDebugToolkit/ResourceBundle-DBDebugToolkit-Info.plist";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DBDebugToolkit_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = DBDebugToolkit;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DBDebugToolkit_Tests/Pods-DBDebugToolkit_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -2444,6 +2558,36 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
+			name = Release;
+		};
+		908770C13B70AB08F74784F19C828267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8956EF6FAE7BD79FA04935802469540 /* Specta.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Specta/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Specta/Specta.modulemap";
+				PRODUCT_MODULE_NAME = Specta;
+				PRODUCT_NAME = Specta;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
 			name = Debug;
 		};
 		45E27D27C0C69F90E6A23171A4686DA1 /* Debug */ = {
@@ -2460,12 +2604,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DBDebugToolkit_Tests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-DBDebugToolkit_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DBDebugToolkit_Tests/Pods-DBDebugToolkit_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-DBDebugToolkit_Example/Pods-DBDebugToolkit_Example.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2492,8 +2636,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Specta/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/DBDebugToolkit/DBDebugToolkit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DBDebugToolkit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2504,6 +2648,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -2554,7 +2699,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DBDebugToolkit_Example/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/iOS-GPX-Framework/iOS-GPX-Framework-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/iOS-GPX-Framework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2567,12 +2713,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		6862347E53B3279B774134AB46EDA70F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2587,8 +2733,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DBDebugToolkit/DBDebugToolkit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DBDebugToolkit/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/TBXML/TBXML-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TBXML/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2629,11 +2775,10 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		BA4CACB10807E38B2B18C3F53EC9B9D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2649,12 +2794,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DBDebugToolkit_Example/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-DBDebugToolkit_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DBDebugToolkit_Example/Pods-DBDebugToolkit_Example.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-DBDebugToolkit_Tests/Pods-DBDebugToolkit_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";

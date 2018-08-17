@@ -33,5 +33,10 @@
     "DBDebugToolkit": [
       "DBDebugToolkit/Resources/*.{storyboard,xib,bundle}"
     ]
+  },
+  "dependencies": {
+    "iOS-GPX-Framework": [
+
+    ]
   }
 }

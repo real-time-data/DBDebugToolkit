@@ -190,19 +190,4 @@
  */
 + (void)setupCrashReporting;
 
-
-///---------------------
-/// @name Shortcut Items
-///---------------------
-
-/**
- Adds a `Clear data` shortcut item.
- */
-+ (void)addClearDataShortcutItem NS_AVAILABLE_IOS(9_0);
-
-/**
- Handles `Clear data` shortcut item action.
- */
-+ (void)handleClearDataShortcutItemAction NS_AVAILABLE_IOS(9_0);
-
 @end

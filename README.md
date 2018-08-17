@@ -2,7 +2,6 @@
 
 [![CI Status](http://img.shields.io/travis/dbukowski/DBDebugToolkit.svg?style=flat)](https://travis-ci.org/dbukowski/DBDebugToolkit)
 [![Version](https://img.shields.io/cocoapods/v/DBDebugToolkit.svg?style=flat)](http://cocoapods.org/pods/DBDebugToolkit)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/DBDebugToolkit.svg?style=flat)](http://cocoapods.org/pods/DBDebugToolkit)
 [![Platform](https://img.shields.io/cocoapods/p/DBDebugToolkit.svg?style=flat)](http://cocoapods.org/pods/DBDebugToolkit)
 
@@ -54,7 +53,6 @@ DBDebugToolkit is a debugging library written in Objective-C. It is meant to pro
 - [x] Modifying custom variable values from the menu
 - [x] Adding custom actions to the menu
 - [x] Opening application settings
-- [x] Application shortcut item for clearing data
 - [x] Showing version & build number
 - [x] Showing device model & iOS version
 
@@ -119,8 +117,6 @@ You can also create your own trigger. To do this, create a class that conforms t
 **The complete list of features with examples can now be found here:** [Features](Features.md).
 
 ## Installation
-
-### CocoaPods
 
 DBDebugToolkit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:

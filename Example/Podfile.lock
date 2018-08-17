@@ -1,17 +1,22 @@
 PODS:
   - DBDebugToolkit (0.5.0)
   - Expecta (1.0.5)
+  - iOS-GPX-Framework (0.0.2):
+    - TBXML (~> 1.5)
   - Specta (1.0.5)
 
 DEPENDENCIES:
   - DBDebugToolkit (from `../`)
   - Expecta
+  - iOS-GPX-Framework
   - Specta
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Expecta
+    - iOS-GPX-Framework
     - Specta
+    - TBXML
 
 EXTERNAL SOURCES:
   DBDebugToolkit:
@@ -20,8 +25,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   DBDebugToolkit: 75612593a738d80843f3e99a7e6aaff6f20ca4aa
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  iOS-GPX-Framework: f6d50c6664a1747746b73da6899b1fc9a1f81ff6
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
+  TBXML: 9f9dadb239f2f2af1dadb87fe43a0ce6e479379a
 
-PODFILE CHECKSUM: 77767a179ee89a5e5c81345791ab10b3079f89ac
+PODFILE CHECKSUM: 1d12a6fb3805b3dfe6d03120c4521dc0cc193784
 
 COCOAPODS: 1.5.3
