@@ -157,12 +157,12 @@
 
 
 -(void)updateLocation {
-  if (self.currentLocationCounter >= self.tripLocations.count) {
+  if (self.tripLocationCounter >= self.tripLocations.count) {
     // We reached the limit or location array is empty
     [self stopTrip];
     return;
   }
-  DBPresetLocation *presetLocation = self.tripLocations[self.currentLocationCounter];
+  DBPresetLocation *presetLocation = self.tripLocations[self.tripLocationCounter];
   if(presetLocation == nil) {
     // data is not able to cast
   }
