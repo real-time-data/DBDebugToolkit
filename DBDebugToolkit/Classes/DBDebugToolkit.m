@@ -315,6 +315,13 @@ static NSString *const DBDebugToolkitObserverPresentationControllerPropertyKeyPa
         [toolkit showMenu];
     }
 }
++ (void)closeMenu {
+    DBDebugToolkit *toolkit = [DBDebugToolkit sharedInstance];
+    if (toolkit.showsMenu) {
+        [toolkit closeMenu];
+    }
+}
+
 
 + (void)closeMenu {
     DBDebugToolkit *toolkit = [DBDebugToolkit sharedInstance];
@@ -358,6 +365,10 @@ static NSString *const DBDebugToolkitObserverPresentationControllerPropertyKeyPa
                                                          context:nil];
     }];
 }
+- (void)closeMenu {
+    [self menuTableViewControllerDidTapClose:self.menuViewController];
+}
+
 
 - (void)closeMenu {
     UIViewController *presentingViewController = self.menuViewController.navigationController.presentingViewController;
