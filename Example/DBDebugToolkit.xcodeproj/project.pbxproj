@@ -22,7 +22,6 @@
 		6627B21A1E45E8070020618C /* DBRequestsExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6627B2191E45E8070020618C /* DBRequestsExampleViewController.m */; };
 		6627B2211E460AF60020618C /* DBRequestExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6627B21F1E460AF60020618C /* DBRequestExampleTableViewCell.m */; };
 		6627B2221E460AF60020618C /* DBRequestExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6627B2201E460AF60020618C /* DBRequestExampleTableViewCell.xib */; };
-		662F49961E49301800D98E31 /* DBLocationExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 662F49951E49301800D98E31 /* DBLocationExampleViewController.m */; };
 		662F49981E49321200D98E31 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662F49971E49321200D98E31 /* MapKit.framework */; };
 		663A55061EE4D2CE0027C4E6 /* DBCrashReportsExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663A55051EE4D2CE0027C4E6 /* DBCrashReportsExampleViewController.m */; };
 		663E02B51E49413B0069FDCB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663E02B41E49413B0069FDCB /* CoreLocation.framework */; };
@@ -43,10 +42,10 @@
 		BF0AAF78D26BBE364C17AD3F /* Pods_DBDebugToolkit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F87A6122AFDA1345CB71754 /* Pods_DBDebugToolkit_Tests.framework */; };
 		E59D6AB31DE095190059D1DC /* LaunchImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59D6AB21DE095190059D1DC /* LaunchImage.storyboard */; };
 		EAAA7239721FAA600A155293 /* Pods_DBDebugToolkit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC16FE01ECBAB52F3B0D7D9D /* Pods_DBDebugToolkit_Example.framework */; };
-		EC9CEEFC2136F7BF00B49497 /* FishingPoints.gpx in Resources */ = {isa = PBXBuildFile; fileRef = EC9CEEF92136F7BF00B49497 /* FishingPoints.gpx */; };
-		EC9CEEFD2136F7BF00B49497 /* Trip.gpx in Resources */ = {isa = PBXBuildFile; fileRef = EC9CEEFA2136F7BF00B49497 /* Trip.gpx */; };
-		EC9CEEFE2136F7BF00B49497 /* Adelaide.gpx in Resources */ = {isa = PBXBuildFile; fileRef = EC9CEEFB2136F7BF00B49497 /* Adelaide.gpx */; };
 		ECA906F521230CCE0042B654 /* MyMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA906F421230CCE0042B654 /* MyMapViewController.m */; };
+		ECFC555621382BE600F6E479 /* FishingPoints.gpx in Resources */ = {isa = PBXBuildFile; fileRef = ECFC555321382BE600F6E479 /* FishingPoints.gpx */; };
+		ECFC555721382BE600F6E479 /* Trip.gpx in Resources */ = {isa = PBXBuildFile; fileRef = ECFC555421382BE600F6E479 /* Trip.gpx */; };
+		ECFC555821382BE600F6E479 /* Adelaide.gpx in Resources */ = {isa = PBXBuildFile; fileRef = ECFC555521382BE600F6E479 /* Adelaide.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +84,6 @@
 		6627B21E1E460AF60020618C /* DBRequestExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBRequestExampleTableViewCell.h; sourceTree = "<group>"; };
 		6627B21F1E460AF60020618C /* DBRequestExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBRequestExampleTableViewCell.m; sourceTree = "<group>"; };
 		6627B2201E460AF60020618C /* DBRequestExampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBRequestExampleTableViewCell.xib; sourceTree = "<group>"; };
-		662F49941E49301800D98E31 /* DBLocationExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLocationExampleViewController.h; sourceTree = "<group>"; };
-		662F49951E49301800D98E31 /* DBLocationExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLocationExampleViewController.m; sourceTree = "<group>"; };
 		662F49971E49321200D98E31 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		663A55041EE4D2CE0027C4E6 /* DBCrashReportsExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCrashReportsExampleViewController.h; sourceTree = "<group>"; };
 		663A55051EE4D2CE0027C4E6 /* DBCrashReportsExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCrashReportsExampleViewController.m; sourceTree = "<group>"; };
@@ -122,11 +119,11 @@
 		B86DD624B9EBCDC139C5CD07 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E59D6AB21DE095190059D1DC /* LaunchImage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchImage.storyboard; sourceTree = "<group>"; };
 		EC232FA05C4C8FD4997750B9 /* Pods-DBDebugToolkit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DBDebugToolkit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DBDebugToolkit_Example/Pods-DBDebugToolkit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		EC9CEEF92136F7BF00B49497 /* FishingPoints.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FishingPoints.gpx; sourceTree = "<group>"; };
-		EC9CEEFA2136F7BF00B49497 /* Trip.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Trip.gpx; sourceTree = "<group>"; };
-		EC9CEEFB2136F7BF00B49497 /* Adelaide.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adelaide.gpx; sourceTree = "<group>"; };
 		ECA906F321230CCE0042B654 /* MyMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMapViewController.h; sourceTree = "<group>"; };
 		ECA906F421230CCE0042B654 /* MyMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapViewController.m; sourceTree = "<group>"; };
+		ECFC555321382BE600F6E479 /* FishingPoints.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FishingPoints.gpx; sourceTree = "<group>"; };
+		ECFC555421382BE600F6E479 /* Trip.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Trip.gpx; sourceTree = "<group>"; };
+		ECFC555521382BE600F6E479 /* Adelaide.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adelaide.gpx; sourceTree = "<group>"; };
 		FC16FE01ECBAB52F3B0D7D9D /* Pods_DBDebugToolkit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DBDebugToolkit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,7 +158,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				EC9CEEF82136F7BF00B49497 /* gpx */,
+				ECFC555221382BE600F6E479 /* gpx */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for DBDebugToolkit */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -212,8 +209,6 @@
 				6627B21E1E460AF60020618C /* DBRequestExampleTableViewCell.h */,
 				6627B21F1E460AF60020618C /* DBRequestExampleTableViewCell.m */,
 				6627B2201E460AF60020618C /* DBRequestExampleTableViewCell.xib */,
-				662F49941E49301800D98E31 /* DBLocationExampleViewController.h */,
-				662F49951E49301800D98E31 /* DBLocationExampleViewController.m */,
 				66571C001E631E590047D5BA /* DataModel.xcdatamodeld */,
 				663A55041EE4D2CE0027C4E6 /* DBCrashReportsExampleViewController.h */,
 				663A55051EE4D2CE0027C4E6 /* DBCrashReportsExampleViewController.m */,
@@ -319,15 +314,15 @@
 			path = "Example map project";
 			sourceTree = "<group>";
 		};
-		EC9CEEF82136F7BF00B49497 /* gpx */ = {
+		ECFC555221382BE600F6E479 /* gpx */ = {
 			isa = PBXGroup;
 			children = (
-				EC9CEEF92136F7BF00B49497 /* FishingPoints.gpx */,
-				EC9CEEFA2136F7BF00B49497 /* Trip.gpx */,
-				EC9CEEFB2136F7BF00B49497 /* Adelaide.gpx */,
+				ECFC555321382BE600F6E479 /* FishingPoints.gpx */,
+				ECFC555421382BE600F6E479 /* Trip.gpx */,
+				ECFC555521382BE600F6E479 /* Adelaide.gpx */,
 			);
 			name = gpx;
-			path = DBDebugToolkit/gpx;
+			path = Pods/gpx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,12 +412,12 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
-				EC9CEEFE2136F7BF00B49497 /* Adelaide.gpx in Resources */,
+				ECFC555821382BE600F6E479 /* Adelaide.gpx in Resources */,
 				E59D6AB31DE095190059D1DC /* LaunchImage.storyboard in Resources */,
-				EC9CEEFD2136F7BF00B49497 /* Trip.gpx in Resources */,
+				ECFC555721382BE600F6E479 /* Trip.gpx in Resources */,
 				6627B2221E460AF60020618C /* DBRequestExampleTableViewCell.xib in Resources */,
 				668EDCAD1E748FDB00730A8F /* DBExampleCollectionViewCell.xib in Resources */,
-				EC9CEEFC2136F7BF00B49497 /* FishingPoints.gpx in Resources */,
+				ECFC555621382BE600F6E479 /* FishingPoints.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +533,6 @@
 				668EDCA81E748EAD00730A8F /* DBCustomVariablesExampleViewController.m in Sources */,
 				ECA906F521230CCE0042B654 /* MyMapViewController.m in Sources */,
 				66D99DE81E6C608700ED8119 /* AddressMO+CoreDataProperties.m in Sources */,
-				662F49961E49301800D98E31 /* DBLocationExampleViewController.m in Sources */,
 				66D99DEB1E6C608700ED8119 /* PersonMO+CoreDataClass.m in Sources */,
 				66D99DE51E6C608700ED8119 /* CarMO+CoreDataClass.m in Sources */,
 				66D99DEC1E6C608700ED8119 /* PersonMO+CoreDataProperties.m in Sources */,

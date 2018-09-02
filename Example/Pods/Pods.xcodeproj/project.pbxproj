@@ -1411,6 +1411,7 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				ECFC555121382AFA00F6E479 /* gpx */,
 				87FD3AA145DF0F7316682BFE7DAA7790 /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				832799A4B323B60613D70B37F74AE952 /* Pods */,
@@ -1438,7 +1439,6 @@
 				87AE2032288BC1B3995E047E30DF8278 /* NSPersistentStoreCoordinator+DBCoreDataToolkit.m */,
 				E574D6601ED993F06BEFE7CBAB7429CD /* Filters */,
 			);
-			name = CoreData;
 			path = CoreData;
 			sourceTree = "<group>";
 		};
