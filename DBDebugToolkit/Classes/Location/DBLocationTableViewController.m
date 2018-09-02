@@ -76,55 +76,96 @@ static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBD
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.locationToolkit.presetLocations.count + 1;
+    if (section == 0) {
+        return 13;
+    } else if (section == 1) {
+        return self.locationToolkit.presetLocations.count - 12;
+    }
+    return nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Simulated location";
+    if (section == 0) {
+        return @"Simulated location";
+    } else if (section == 1){
+    return @"GPX Files";
+    }
+    return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.selectedIndex.integerValue == 0 && indexPath.row == 0) {
-        return [self selectedCustomCell];
-    } else {
-        return [self simpleCellForIndexPath:indexPath];
+    
+    if (indexPath.section == 0) {
+        if (self.selectedIndex.integerValue == 0 && indexPath.row == 0) {
+            return [self selectedCustomCell];
+        } else {
+            return [self simpleCellForIndexPath:indexPath];
+        }
+    } else if (indexPath.section == 1) {
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DBLocationTableViewControllerSimpleCellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                          reuseIdentifier:DBLocationTableViewControllerSimpleCellIdentifier];
+        }
+        BOOL isSelected = self.selectedIndex.integerValue == indexPath.row;
+        cell.textLabel.textColor = isSelected ? cell.tintColor : [UIColor blackColor];
+        cell.textLabel.text = [self.locationToolkit.presetLocations[indexPath.row + 12] firstObject].title;
+        cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark :
+        UITableViewCellAccessoryNone;
+        return cell;
     }
     
-
+    return nil;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row > 0)
-    {
-        self.selectedIndex = @(indexPath.row);
-        NSMutableArray *presetLocations = self.locationToolkit.presetLocations[indexPath.row - 1];
-        DBPresetLocation *presetLocation;
-        
-        if (indexPath.row == 14)
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row > 0)
         {
-            presetLocation = [presetLocations lastObject];
-            NSLog(@"%@",presetLocations);
+            self.selectedIndex = @(indexPath.row);
+            NSMutableArray *presetLocations = self.locationToolkit.presetLocations[indexPath.row - 1];
+            DBPresetLocation *presetLocation;
+            
+            if (indexPath.row == 14)
+            {
+                presetLocation = [presetLocations lastObject];
+                NSLog(@"%@",presetLocations);
+            } else {
+                presetLocation = [presetLocations firstObject];
+            }
+            self.locationToolkit.simulatedLocation = presetLocations;//[[CLLocation alloc] initWithLatitude:presetLocation.latitude
+            //longitude:presetLocation.longitude];
+            self.resetButton.enabled = YES;
+            [self.tableView reloadData];
         } else {
-           presetLocation = [presetLocations firstObject];
+            NSBundle *bundle = [NSBundle debugToolkitBundle];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"DBCustomLocationViewController" bundle:bundle];
+            DBCustomLocationViewController *customLocationViewController = [storyboard instantiateInitialViewController];
+            customLocationViewController.delegate = self;
+            customLocationViewController.selectedLocation = self.locationToolkit.simulatedLocation;
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:customLocationViewController];
+            [self.navigationController presentViewController:navigationController animated:YES completion:nil];
         }
-        self.locationToolkit.simulatedLocation = presetLocations;//[[CLLocation alloc] initWithLatitude:presetLocation.latitude
-                                                                            //longitude:presetLocation.longitude];
-        self.resetButton.enabled = YES;
-        [self.tableView reloadData];
-        } else {
-        NSBundle *bundle = [NSBundle debugToolkitBundle];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"DBCustomLocationViewController" bundle:bundle];
-        DBCustomLocationViewController *customLocationViewController = [storyboard instantiateInitialViewController];
-        customLocationViewController.delegate = self;
-        customLocationViewController.selectedLocation = self.locationToolkit.simulatedLocation;
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:customLocationViewController];
-        [self.navigationController presentViewController:navigationController animated:YES completion:nil];
+        } else if (indexPath.section == 1) {
+
+            int a = indexPath.row;
+            
+            NSLog(@"%i",a);
+            self.selectedIndex = @(indexPath.row);
+            NSMutableArray *presetLocations = self.locationToolkit.presetLocations[indexPath.row + 12];
+            DBPresetLocation *presetLocation;
+            self.locationToolkit.simulatedLocation = presetLocations;//[[CLLocation alloc] initWithLatitude:presetLocation.latitude
+            //longitude:presetLocation.longitude];
+            self.resetButton.enabled = YES;
+            [self.tableView reloadData];
+
     }
 }
 
@@ -167,13 +208,12 @@ static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBD
     }
     BOOL isSelected = self.selectedIndex.integerValue == indexPath.row;
     cell.textLabel.textColor = isSelected ? cell.tintColor : [UIColor blackColor];
+    
     cell.textLabel.text = indexPath.row == 0 ? @"Custom..." : [self.locationToolkit.presetLocations[indexPath.row - 1] firstObject].title;
     cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark :
     UITableViewCellAccessoryNone;
     
-    if (indexPath.row == 14) {
-        cell.textLabel.text = @"Trip";
-    }
+
     
     return cell;
 }
