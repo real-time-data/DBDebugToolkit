@@ -126,9 +126,6 @@
                                                                     latitude:-22.903539
                                                                    longitude:-43.209587]]];
         
-        [presetLocations addObject:@[[DBPresetLocation presetLocationWithTitle:@"Adelaide, Australia"
-                                                                      latitude:-35.086572
-                                                                     longitude:138.321284]]];
        
         NSMutableArray *arr = [self GPXFiles:nil];
         NSLog(@"%@", arr);
