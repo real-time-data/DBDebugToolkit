@@ -47,12 +47,15 @@
 - (void)coutnerCalled {
     if (counter>=[array count]) {
         counter = 0;
+        [timer invalidate];
     }
     MKUserLocation *loc = [MKUserLocation new];
     loc = [array objectAtIndex:counter++];
     NSLog(@"%@",loc);
     [self mapView:self.mapView didUpdateUserLocation:loc];
 }
+    
+
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -61,7 +64,7 @@
     CLLocation *location;
     arrLocations = [NSMutableArray new];
     if (locations.count>0) {
-        counter = locations.count;
+        counter = 0;
         arrLocations = [locations mutableCopy];
         array = [NSMutableArray new];
         for (CLLocation *lo in locations){
