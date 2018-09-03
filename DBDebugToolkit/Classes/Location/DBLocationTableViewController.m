@@ -30,12 +30,13 @@ static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBD
 @interface DBLocationTableViewController () <DBCustomLocationViewControllerDelegate>
 
 @property (nonatomic, strong) NSNumber *selectedIndex;
+
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *resetButton;
 
 @end
 
 @implementation DBLocationTableViewController
-
+NSInteger selectedSection = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.resetButton.enabled = self.locationToolkit.simulatedLocation != nil;
@@ -100,7 +101,7 @@ static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBD
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-        if (self.selectedIndex.integerValue == 0 && indexPath.row == 0) {
+        if (self.selectedIndex.integerValue == 0 && indexPath.row == 0 && selectedSection == indexPath.section) {
             return [self selectedCustomCell];
         } else {
             return [self simpleCellForIndexPath:indexPath];
@@ -111,7 +112,12 @@ static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBD
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                           reuseIdentifier:DBLocationTableViewControllerSimpleCellIdentifier];
         }
-        BOOL isSelected = self.selectedIndex.integerValue == indexPath.row;
+        BOOL isSelected = false;//= self.selectedIndex.integerValue == indexPath.row;
+        if(indexPath.row == self.selectedIndex.integerValue && selectedSection == indexPath.section){
+            isSelected = true;
+        } else {
+            isSelected = false;
+        }
         cell.textLabel.textColor = isSelected ? cell.tintColor : [UIColor blackColor];
         cell.textLabel.text = [self.locationToolkit.presetLocations[indexPath.row + 12] firstObject].title;
         cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark :
@@ -125,6 +131,7 @@ static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBD
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    selectedSection = indexPath.section;
     
     if (indexPath.section == 0) {
         if (indexPath.row > 0)
@@ -154,10 +161,6 @@ static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBD
             [self.navigationController presentViewController:navigationController animated:YES completion:nil];
         }
         } else if (indexPath.section == 1) {
-
-            int a = indexPath.row;
-            
-            NSLog(@"%i",a);
             self.selectedIndex = @(indexPath.row);
             NSMutableArray *presetLocations = self.locationToolkit.presetLocations[indexPath.row + 12];
             DBPresetLocation *presetLocation;
@@ -206,15 +209,17 @@ static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBD
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:DBLocationTableViewControllerSimpleCellIdentifier];
     }
-    BOOL isSelected = self.selectedIndex.integerValue == indexPath.row;
+    BOOL isSelected = false;//= self.selectedIndex.integerValue == indexPath.row;
+    if(indexPath.row == self.selectedIndex.integerValue && selectedSection == indexPath.section){
+        isSelected = true;
+    } else {
+        isSelected = false;
+    }
     cell.textLabel.textColor = isSelected ? cell.tintColor : [UIColor blackColor];
     
     cell.textLabel.text = indexPath.row == 0 ? @"Custom..." : [self.locationToolkit.presetLocations[indexPath.row - 1] firstObject].title;
     cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark :
     UITableViewCellAccessoryNone;
-    
-
-    
     return cell;
 }
 
