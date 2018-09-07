@@ -88,7 +88,7 @@
 - (NSArray <NSMutableArray<DBPresetLocation *> *> *)presetLocations {
     if (!_presetLocations) {
         NSMutableArray *presetLocations = [NSMutableArray array];
-        [NSBundle.mainBundle URLForResource:@"Trip" withExtension:@"gpx"];
+        
         [presetLocations addObject:@[[DBPresetLocation presetLocationWithTitle:@"London, England"
                                       latitude:51.509980
                                       longitude:-0.133700]]];
@@ -125,8 +125,7 @@
         [presetLocations addObject:@[[DBPresetLocation presetLocationWithTitle:@"Rio de Janeiro, Brazil"
                                                                     latitude:-22.903539
                                                                    longitude:-43.209587]]];
-        
-       
+               
         NSMutableArray *arr = [self GPXFiles:nil];
         NSLog(@"%@", arr);
         
@@ -145,21 +144,15 @@
                         }
                         //Added the gpx parsed array object in the presetlocations array
                         [presetLocations addObject:locationsArrayTrip];
-//polylines
         }
-    
-
        _presetLocations = [presetLocations copy];
     }
     
     return _presetLocations;
 }
 
--(NSMutableArray *)GPXFiles:(NSString *)extention
+-(NSArray *)GPXFiles:(NSString *)extention
 {
-//    NSMutableArray *matchedFiles = [NSMutableArray new];
-//    NSFileManager *manager = [NSFileManager defaultManager];
-//    NSString *item;
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[NSBundle mainBundle] resourcePath] error:nil];
     NSMutableArray *gpxFiles = [[NSMutableArray alloc] init];
     [contents enumerateObjectsUsingBlock:^(NSString  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -170,8 +163,5 @@
     
     return gpxFiles;
 }
-
-
-
 
 @end
