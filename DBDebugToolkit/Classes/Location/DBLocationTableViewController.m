@@ -170,6 +170,7 @@ NSInteger selectedSection = 0;
             [self.tableView reloadData];
 
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"locationUpdate" object:nil];
 }
 
 #pragma mark - DBCustomLocationViewControllerDelegate

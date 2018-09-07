@@ -25,6 +25,11 @@
 /**
  `CLLocationManager` category that replaces private methods to simulate location.
  */
+static NSString *const CLLocationUpdate = @"locationUpdate";
+
 @interface CLLocationManager (DBLocationToolkit)
+-(void)startLocationUpdates;
+-(void)addLocationObserver;
+@property(nonatomic,strong)NSMutableArray *clLocations;
 
 @end
