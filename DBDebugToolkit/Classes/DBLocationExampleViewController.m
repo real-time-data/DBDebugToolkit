@@ -37,6 +37,12 @@
     [self setupLocationManager];
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.locationManager stopUpdatingLocation];
+    self.locationManager.delegate = nil;
+}
+
 - (void)setupLocationManager {
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
@@ -44,56 +50,62 @@
     [self.locationManager startUpdatingLocation];
 }
 
-- (void)coutnerCalled {
-    if (counter>=[array count]) {
-        counter = 0;
-        [timer invalidate];
-    }
-    MKUserLocation *loc = [MKUserLocation new];
-    loc = [array objectAtIndex:counter++];
-    NSLog(@"%@",loc);
-    [self mapView:self.mapView didUpdateUserLocation:loc];
-}
-    
+//- (void)coutnerCalled {
+//    if (counter>=[array count]) {
+//        counter = 0;
+//        [timer invalidate];
+//    }
+//    MKUserLocation *loc = [MKUserLocation new];
+//    loc = [array objectAtIndex:counter++];
+//    NSLog(@"%@",loc);
+//    [self mapView:self.mapView didUpdateUserLocation:loc];
+//}
+//
 
 
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
-    
+    int i = locations.count;
+    NSLog(@"%i",i);
     CLLocation *location;
     arrLocations = [NSMutableArray new];
-    if (locations.count>0) {
-        counter = 0;
-        arrLocations = [locations mutableCopy];
-        array = [NSMutableArray new];
-        for (CLLocation *lo in locations){
-            MKUserLocation *loc = [MKUserLocation new];
-            loc.coordinate = lo.coordinate;
-            [array addObject: loc];
-        }
-        timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(coutnerCalled) userInfo:nil repeats:YES];
-        [manager stopUpdatingLocation];
-    } else {
+//    if (locations.count>0) {
+//        counter = 0;
+//        arrLocations = [locations mutableCopy];
+//        array = [NSMutableArray new];
+//        for (CLLocation *lo in locations){
+//            MKUserLocation *loc = [MKUserLocation new];
+//            loc.coordinate = lo.coordinate;
+//            [array addObject: loc];
+//        }
+//        timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(coutnerCalled) userInfo:nil repeats:YES];
+//        [manager stopUpdatingLocation];
+//    } else {
     location = locations.lastObject;
-    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
-    [geoCoder reverseGeocodeLocation:location
-                   completionHandler:^(NSArray *placemarks, NSError *error) {
-                       CLPlacemark *placemark = placemarks.firstObject;
-                       NSMutableArray *placemarkDescriptions = [NSMutableArray array];
-                       if (placemark.country) {
-                           [placemarkDescriptions addObject:placemark.country];
-                       }
-                       if (placemark.administrativeArea) {
-                           [placemarkDescriptions addObject:placemark.administrativeArea];
-                       }
-                       if (placemark.locality) {
-                           [placemarkDescriptions addObject:placemark.locality];
-                       }
-                       self.label.text = [placemarkDescriptions componentsJoinedByString:@", "];
-                   }];
+    MKUserLocation *loc = [MKUserLocation new];
+    loc.coordinate = location.coordinate;
+    [self mapView:self.mapView didUpdateUserLocation:loc];
+    NSLog(@"%f %f",loc.coordinate.latitude, loc.coordinate.longitude);
+ //   [manager stopUpdatingLocation];
+//    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+//    [geoCoder reverseGeocodeLocation:location
+//                   completionHandler:^(NSArray *placemarks, NSError *error) {
+//                       CLPlacemark *placemark = placemarks.firstObject;
+//                       NSMutableArray *placemarkDescriptions = [NSMutableArray array];
+//                       if (placemark.country) {
+//                           [placemarkDescriptions addObject:placemark.country];
+//                       }
+//                       if (placemark.administrativeArea) {
+//                           [placemarkDescriptions addObject:placemark.administrativeArea];
+//                       }
+//                       if (placemark.locality) {
+//                           [placemarkDescriptions addObject:placemark.locality];
+//                       }
+//                       self.label.text = [placemarkDescriptions componentsJoinedByString:@", "];
+//                   }];
     }
-}
+//}
 
 #pragma mark - MKMapViewDelegate
 
