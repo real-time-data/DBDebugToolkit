@@ -43,5 +43,5 @@
  A list of preset locations. Read-only.
  */
 @property (nonatomic, readonly) NSArray <NSMutableArray<DBPresetLocation *> *> *presetLocations;
-
+@property (nonatomic, readonly) NSArray <NSMutableArray<DBPresetLocation *> *> *gpxFilesLocations; // new array property
 @end
