@@ -28,8 +28,10 @@
 {
     NSMutableArray *locationArrayOthers;
 }
-
+// array property for single locations
 @property (nonatomic, strong) NSArray <NSMutableArray<DBPresetLocation *> *> *presetLocations;
+// array property for gpx file locations
+@property (nonatomic, strong) NSArray <NSMutableArray<DBPresetLocation *> *> *gpxFilesLocations;
 
 @end
 
@@ -85,6 +87,7 @@
 
 #pragma mark - Preset locations
 
+// Array which will contain only single locations
 - (NSArray <NSMutableArray<DBPresetLocation *> *> *)presetLocations {
     if (!_presetLocations) {
         NSMutableArray *presetLocations = [NSMutableArray array];
@@ -125,30 +128,40 @@
         [presetLocations addObject:@[[DBPresetLocation presetLocationWithTitle:@"Rio de Janeiro, Brazil"
                                                                     latitude:-22.903539
                                                                    longitude:-43.209587]]];
-               
-        NSMutableArray *arr = [self GPXFiles:nil];
-        NSLog(@"%@", arr);
-        
-       for(NSString *someObject in arr)
-        {
-            NSMutableArray *locationsArrayTrip =  [NSMutableArray new];
-
-                        NSString *str=[[NSBundle mainBundle] pathForResource:someObject ofType:nil];
-                        NSData *fileData = [NSData dataWithContentsOfFile:str];
-                        GPXRoot *gpx = [GPXParser parseGPXWithData:fileData];
-                        NSArray *arrayLocations = [NSArray new];
-                        arrayLocations = [gpx waypoints];
-                        for (GPXWaypoint *point in arrayLocations){
-                            DBPresetLocation *location = [DBPresetLocation  presetLocationWithTitle:point.name latitude:point.latitude longitude:point.longitude];
-                            [locationsArrayTrip addObject:location];
-                        }
-                        //Added the gpx parsed array object in the presetlocations array
-                        [presetLocations addObject:locationsArrayTrip];
-        }
        _presetLocations = [presetLocations copy];
     }
-    
     return _presetLocations;
+}
+
+// Array which will have the all gpx file locations
+#pragma mark - GPX locations
+
+- (NSArray <NSMutableArray<DBPresetLocation *> *> *)gpxFilesLocations {
+    if (!_gpxFilesLocations) {
+        
+        NSMutableArray *gpxLocations = [NSMutableArray array];
+        NSArray *arr = [self GPXFiles:nil];
+        
+        for(NSString *someObject in arr)
+        {
+            NSMutableArray *locationsArrayTrip =  [NSMutableArray new];
+            
+            NSString *str=[[NSBundle mainBundle] pathForResource:someObject ofType:nil];
+            NSData *fileData = [NSData dataWithContentsOfFile:str];
+            GPXRoot *gpx = [GPXParser parseGPXWithData:fileData];
+            NSArray *arrayLocations = [NSArray new];
+            arrayLocations = [gpx waypoints];
+            for (GPXWaypoint *point in arrayLocations){
+                DBPresetLocation *location = [DBPresetLocation  presetLocationWithTitle:point.name latitude:point.latitude longitude:point.longitude];
+                [locationsArrayTrip addObject:location];
+            }
+            //Added the gpx parsed array object in the presetlocations array
+            [gpxLocations addObject:locationsArrayTrip];
+        }
+        _gpxFilesLocations = [gpxLocations copy];
+    }
+    
+    return _gpxFilesLocations;
 }
 
 -(NSArray *)GPXFiles:(NSString *)extention
