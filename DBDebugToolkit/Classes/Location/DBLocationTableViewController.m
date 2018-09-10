@@ -82,9 +82,9 @@ NSInteger selectedSection = 0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 13;
+        return self.locationToolkit.presetLocations.count+1;  // previously it had 13
     } else if (section == 1) {
-        return self.locationToolkit.presetLocations.count - 12;
+        return self.locationToolkit.gpxFilesLocations.count;  // passed new gpx locations array count
     }
     return nil;
 }
@@ -112,15 +112,15 @@ NSInteger selectedSection = 0;
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                           reuseIdentifier:DBLocationTableViewControllerSimpleCellIdentifier];
         }
-        BOOL isSelected = false;//= self.selectedIndex.integerValue == indexPath.row;
+        BOOL isSelected = NO; //= self.selectedIndex.integerValue == indexPath.row;
         if(indexPath.row == self.selectedIndex.integerValue && selectedSection == indexPath.section){
-            isSelected = true;
+            isSelected = YES;
         } else {
-            isSelected = false;
+            isSelected = NO;
         }
         cell.textLabel.textColor = isSelected ? cell.tintColor : [UIColor blackColor];
-        cell.textLabel.text = [self.locationToolkit.presetLocations[indexPath.row + 12] firstObject].title;
-        cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark :
+        cell.textLabel.text = [self.locationToolkit.gpxFilesLocations[indexPath.row] firstObject].title; // previously it had
+        cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark :                            // presentlocations
         UITableViewCellAccessoryNone;
         return cell;
     }
@@ -138,15 +138,7 @@ NSInteger selectedSection = 0;
         {
             self.selectedIndex = @(indexPath.row);
             NSMutableArray *presetLocations = self.locationToolkit.presetLocations[indexPath.row - 1];
-            DBPresetLocation *presetLocation;
-            
-            if (indexPath.row == 14)
-            {
-                presetLocation = [presetLocations lastObject];
-                NSLog(@"%@",presetLocations);
-            } else {
-                presetLocation = [presetLocations firstObject];
-            }
+            //DBPresetLocation *presetLocation;
             self.locationToolkit.simulatedLocation = presetLocations;//[[CLLocation alloc] initWithLatitude:presetLocation.latitude
             //longitude:presetLocation.longitude];
             self.resetButton.enabled = YES;
@@ -162,8 +154,8 @@ NSInteger selectedSection = 0;
         }
         } else if (indexPath.section == 1) {
             self.selectedIndex = @(indexPath.row);
-            NSMutableArray *presetLocations = self.locationToolkit.presetLocations[indexPath.row + 12];
-            DBPresetLocation *presetLocation;
+            NSMutableArray *presetLocations = self.locationToolkit.gpxFilesLocations[indexPath.row]; // passed gpx files array
+            //DBPresetLocation *presetLocation;
             self.locationToolkit.simulatedLocation = presetLocations;//[[CLLocation alloc] initWithLatitude:presetLocation.latitude
             //longitude:presetLocation.longitude];
             self.resetButton.enabled = YES;
@@ -194,9 +186,9 @@ NSInteger selectedSection = 0;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:DBLocationTableViewControllerSelectedCustomCellIdentifier];
-        cell.textLabel.textColor = cell.tintColor;
-        cell.detailTextLabel.textColor = cell.tintColor;
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+       // cell.textLabel.textColor = cell.tintColor;
+     //   cell.detailTextLabel.textColor = cell.tintColor;
+        //cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     cell.textLabel.text = @"Custom";
     DBPresetLocation *location = self.locationToolkit.simulatedLocation.firstObject;
@@ -210,17 +202,25 @@ NSInteger selectedSection = 0;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:DBLocationTableViewControllerSimpleCellIdentifier];
     }
-    BOOL isSelected = false;//= self.selectedIndex.integerValue == indexPath.row;
+    BOOL isSelected = NO;//= self.selectedIndex.integerValue == indexPath.row;
     if(indexPath.row == self.selectedIndex.integerValue && selectedSection == indexPath.section){
-        isSelected = true;
+        isSelected = YES;
     } else {
-        isSelected = false;
+        isSelected = NO;
     }
     cell.textLabel.textColor = isSelected ? cell.tintColor : [UIColor blackColor];
     
     cell.textLabel.text = indexPath.row == 0 ? @"Custom..." : [self.locationToolkit.presetLocations[indexPath.row - 1] firstObject].title;
     cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark :
     UITableViewCellAccessoryNone;
+//    if (isSelected == NO){
+//    if(indexPath.section == 0 && indexPath.row == 0)
+//    {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//        cell.textLabel.textColor = [UIColor blackColor];
+//    }
+//    }
+    
     return cell;
 }
 
