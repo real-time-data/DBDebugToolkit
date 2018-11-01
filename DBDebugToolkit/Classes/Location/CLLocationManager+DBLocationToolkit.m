@@ -85,6 +85,9 @@ NSInteger tripLocationCounter = 0;
 
 -(void)updateLocation {
     NSArray *points = [[DBLocationToolkit sharedInstance] simulatedLocation];
+    
+    if ([points count] <=0) { return; }
+    
     if (tripLocationCounter >= points.count) {
         tripLocationCounter = 0;
     }
