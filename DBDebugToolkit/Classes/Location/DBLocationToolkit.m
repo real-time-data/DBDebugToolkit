@@ -24,9 +24,13 @@
 #import "DBDebugToolkitUserDefaultsKeys.h"
 #import "GPX.h"
 
+#import "CLLocationManager+DBLocationToolkit.h"
+
 @interface DBLocationToolkit ()
 {
     NSMutableArray *locationArrayOthers;
+    
+    NSTimer *timer;
 }
 // array property for single locations
 @property (nonatomic, strong) NSArray <NSMutableArray<DBPresetLocation *> *> *presetLocations;
@@ -66,6 +70,9 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:DBDebugToolkitUserDefaultsSimulatedLocations];
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else {
+        [self stopTrip];
     }
 }
 
@@ -175,6 +182,39 @@
     }];
     
     return gpxFiles;
+}
+
+-(void)startLocationUpdates {
+    if(timer != nil) {
+        [timer invalidate];
+        timer = nil;
+    }
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
+}
+
+-(void)updateLocation {
+    
+    [[self simulatedLocation] removeObjectAtIndex:0];
+    
+    if ([[self simulatedLocation] count] <=0) {
+        return;
+    }
+    
+    DBPresetLocation *nextLocation = [[self simulatedLocation] firstObject];
+    
+    if (nextLocation != nil) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CLLocationManagerUpdateKey object:nil];
+    }
+    else {
+        [self stopTrip];
+    }
+}
+
+-(void)stopTrip {
+    if (timer != nil) {
+        [timer invalidate];
+        timer = nil;
+    }
 }
 
 @end

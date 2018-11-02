@@ -26,9 +26,9 @@
 #import <objc/runtime.h>
 
 static NSString *const CLLocationManagerLocationsKey = @"Locations";
-NSTimer *timer;
-NSInteger tripLocationCounter = 0;
-//NSMutableArray *arr;
+NSString *const CLLocationManagerUpdateKey = @"LocationUpdate";
+
+
 @implementation CLLocationManager (DBLocationToolkit)
 
 + (void)load {
@@ -42,30 +42,46 @@ NSInteger tripLocationCounter = 0;
         key = [[NSString alloc] initWithData:[NSData dataWithBytes:(unsigned char []){0x6f, 0x6e, 0x43, 0x6c, 0x69, 0x65, 0x6e, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x4c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x3a, 0x66, 0x6f, 0x72, 0x63, 0x65, 0x4d, 0x61, 0x70, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x69, 0x6e, 0x67, 0x3a, 0x74, 0x79, 0x70, 0x65, 0x3a} length:44] encoding:NSASCIIStringEncoding];
         [self exchangeInstanceMethodsWithOriginalSelector:NSSelectorFromString(key)
                                       andSwizzledSelector:@selector(db_onClientEventLocation:forceMapMatching:type:)];
+        // Making sure to minimize the risk of rejecting app because of the private API.
+        key = @"startUpdatingLocation";
+        [self exchangeInstanceMethodsWithOriginalSelector:NSSelectorFromString(key)
+                                      andSwizzledSelector:@selector(db_startUpdatingLocation)];
     });
+}
+
+-(void)db_startUpdatingLocation {
+    [self addLocationObserver];
+    [self db_startUpdatingLocation];
 }
 
 - (void)db_onClientEventLocation:(NSDictionary *)dictionary {
     if ([DBLocationToolkit sharedInstance].simulatedLocation == nil) {
         [self db_onClientEventLocation:dictionary];
-    }else{
-        NSMutableArray *clLocations = [[NSMutableArray alloc]init];
-        [[DBLocationToolkit sharedInstance].simulatedLocation enumerateObjectsUsingBlock:^(DBPresetLocation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            CLLocation *location = [[CLLocation alloc] initWithLatitude:obj.latitude longitude:obj.longitude];
-            [clLocations addObject: location];
-        }];
-        [self.delegate locationManager:self didUpdateLocations:clLocations];
-        
+    } else {
+        DBPresetLocation *dbLocation = [[DBLocationToolkit sharedInstance].simulatedLocation firstObject];
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:dbLocation.latitude longitude:dbLocation.longitude];
+        [self.delegate locationManager:self didUpdateLocations:@[location]];
     }
 }
+
+- (void)db_onClientEventLocation:(NSDictionary *)dictionary forceMapMatching:(BOOL)forceMapMatching type:(id)type {
+    if ([DBLocationToolkit sharedInstance].simulatedLocation == nil) {
+        [self db_onClientEventLocation:dictionary forceMapMatching:forceMapMatching type:type];
+    } else {
+        DBPresetLocation *dbLocation = [[DBLocationToolkit sharedInstance].simulatedLocation firstObject];
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:dbLocation.latitude longitude:dbLocation.longitude];
+        [self.delegate locationManager:self didUpdateLocations:@[location]];
+    }
+}
+
 #pragma mark -  location trip code
 
 -(void)addLocationObserver {
     [self removeLocationObserver];
-    [[NSNotificationCenter defaultCenter] addObserverForName:CLLocationUpdate
+    [[NSNotificationCenter defaultCenter] addObserverForName:CLLocationManagerUpdateKey
                                                       object:nil queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification * _Nonnull note) {
-                                                      [self performSelector:@selector(startLocationUpdates)];
+                                                      [self performSelector:@selector(updateLocation)];
                                                   }];
 }
 
@@ -73,61 +89,11 @@ NSInteger tripLocationCounter = 0;
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
--(void)startLocationUpdates{
-   if(timer != nil) {
-       [timer invalidate];
-       timer = nil;
-   }
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
-    tripLocationCounter = 0;
-    
+-(void)updateLocation
+{
+    DBPresetLocation *dbLocation = [[DBLocationToolkit sharedInstance].simulatedLocation firstObject];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:dbLocation.latitude longitude:dbLocation.longitude];
+    [self.delegate locationManager:self didUpdateLocations:@[location]];
 }
 
--(void)updateLocation {
-    NSArray *points = [[DBLocationToolkit sharedInstance] simulatedLocation];
-    
-    if ([points count] <=0) { return; }
-    
-    if (tripLocationCounter >= points.count) {
-        tripLocationCounter = 0;
-    }
-    
-    DBPresetLocation *nextLocation = [points objectAtIndex:tripLocationCounter++];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:nextLocation.latitude longitude:nextLocation.longitude];
-    
-    [self.delegate locationManager:self didUpdateLocations:[NSArray arrayWithObject:location]];
-}
-
--(void)stopTrip {
-    if (timer != nil) {
-        [timer invalidate];
-        timer = nil;
-    }
-    self.clLocations = nil;
-}
-
-- (void)db_onClientEventLocation:(NSDictionary *)dictionary forceMapMatching:(BOOL)forceMapMatching type:(id)type {
-    
-    [self startLocationUpdates];// not calling observer. trying to call directly
-    
-    
-//    if ([DBLocationToolkit sharedInstance].simulatedLocation == nil) {
-//        [self db_onClientEventLocation:dictionary forceMapMatching:forceMapMatching type:type];
-//    } else {
-//        self.clLocations = [[NSMutableArray alloc]init];
-//        [[DBLocationToolkit sharedInstance].simulatedLocation enumerateObjectsUsingBlock:^(DBPresetLocation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            CLLocation *location = [[CLLocation alloc] initWithLatitude:obj.latitude longitude:obj.longitude];
-//            [self.clLocations addObject: location];
-//        }];
-//        //[self.delegate locationManager:self didUpdateLocations:clLocations];
-//    }
-}
-
-- (NSString *)clLocations{
-    return objc_getAssociatedObject(self, @selector(text));
-}
-
-- (void)setClLocations:(NSMutableArray *)locations{
-    objc_setAssociatedObject(self, @selector(clLocations), locations, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 @end

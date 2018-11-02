@@ -44,4 +44,8 @@
  */
 @property (nonatomic, readonly) NSArray <NSMutableArray<DBPresetLocation *> *> *presetLocations;
 @property (nonatomic, readonly) NSArray <NSMutableArray<DBPresetLocation *> *> *gpxFilesLocations; // new array property
+
+
+-(void)startLocationUpdates;
+-(void)stopTrip;
 @end
