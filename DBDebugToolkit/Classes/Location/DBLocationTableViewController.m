@@ -24,6 +24,8 @@
 #import "NSBundle+DBDebugToolkit.h"
 #import "DBCustomLocationViewController.h"
 
+#import "CLLocationManager+DBLocationToolkit.h"
+
 static NSString *const DBLocationTableViewControllerSelectedCustomCellIdentifier = @"DBDebugToolkit_selectedCustomCell";
 static NSString *const DBLocationTableViewControllerSimpleCellIdentifier = @"DBDebugToolkit_simpleCell";
 
@@ -152,15 +154,17 @@ NSInteger selectedSection = 0;
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:customLocationViewController];
             [self.navigationController presentViewController:navigationController animated:YES completion:nil];
         }
-        } else if (indexPath.section == 1) {
-            self.selectedIndex = @(indexPath.row);
-            NSMutableArray *presetLocations = self.locationToolkit.gpxFilesLocations[indexPath.row]; // passed gpx files array
-            //DBPresetLocation *presetLocation;
-            self.locationToolkit.simulatedLocation = presetLocations;//[[CLLocation alloc] initWithLatitude:presetLocation.latitude
-            //longitude:presetLocation.longitude];
-            self.resetButton.enabled = YES;
-            [self.tableView reloadData];
-
+    }
+    else if (indexPath.section == 1) {
+        self.selectedIndex = @(indexPath.row);
+        NSMutableArray *presetLocations = self.locationToolkit.gpxFilesLocations[indexPath.row]; // passed gpx files array
+        //DBPresetLocation *presetLocation;
+        self.locationToolkit.simulatedLocation = presetLocations;//[[CLLocation alloc] initWithLatitude:presetLocation.latitude
+        [self.locationToolkit startLocationUpdates];
+        //longitude:presetLocation.longitude];
+        self.resetButton.enabled = YES;
+        [self.tableView reloadData];
+        
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"locationUpdate" object:nil];
 }
