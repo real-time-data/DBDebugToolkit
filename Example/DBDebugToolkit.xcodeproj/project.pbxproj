@@ -438,7 +438,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DBDebugToolkit_Tests/Pods-DBDebugToolkit_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DBDebugToolkit_Tests/Pods-DBDebugToolkit_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/TBXML/TBXML.framework",
 				"${BUILT_PRODUCTS_DIR}/iOS-GPX-Framework/iOS_GPX_Framework.framework",
 				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
@@ -453,7 +453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DBDebugToolkit_Tests/Pods-DBDebugToolkit_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DBDebugToolkit_Tests/Pods-DBDebugToolkit_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1C06E17C6324CD29B4225C04 /* [CP] Check Pods Manifest.lock */ = {
@@ -498,7 +498,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DBDebugToolkit_Example/Pods-DBDebugToolkit_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DBDebugToolkit_Example/Pods-DBDebugToolkit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DBDebugToolkit/DBDebugToolkit.framework",
 				"${BUILT_PRODUCTS_DIR}/TBXML/TBXML.framework",
 				"${BUILT_PRODUCTS_DIR}/iOS-GPX-Framework/iOS_GPX_Framework.framework",
@@ -511,7 +511,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DBDebugToolkit_Example/Pods-DBDebugToolkit_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DBDebugToolkit_Example/Pods-DBDebugToolkit_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
